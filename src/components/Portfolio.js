@@ -8,13 +8,13 @@ class Portfolio extends Component {
 
     render() {
         return (
-          <div class="page">
-              <div class="header-area"></div>
-              <div class="content-header-area h3">My Portfolio</div>
-              <div class="content-area">
-                  <div class="button-area">
-                    <div class="row">
-                        <input class="btn btn-warning btn-sm" type="button" value="Add New Holding" onClick={this.newHoldingBtnOnClick}/>
+          <div className="page">
+              <div className="header-area"></div>
+              <div className="content-header-area h3">My Portfolio</div>
+              <div className="content-area">
+                  <div className="button-area">
+                    <div className="row">
+                        <input className="btn btn-warning btn-sm" type="button" value="Add New Holding" onClick={this.newHoldingBtnOnClick}/>
                     </div>
                   </div>
               </div>

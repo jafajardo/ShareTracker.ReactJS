@@ -5,10 +5,10 @@ import NewHolding from '../blocks/NewHolding';
 class Holdings extends React.Component {
     render() {
         return (
-            <div class="page">
-              <div class="header-area"></div>
-              <div class="content-header-area h3">Add New Holding</div>
-              <div class="content-area">
+            <div className="page">
+              <div className="header-area"></div>
+              <div className="content-header-area h3">Add Holdings</div>
+              <div className="content-area">
                   <NewHolding />
               </div>
           </div>

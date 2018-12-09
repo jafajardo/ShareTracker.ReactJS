@@ -23,3 +23,9 @@ html, body {
 .content-header-area {
     padding: 10px;
 }
+.newHoldingForm {
+    padding: 20px;
+}
+.form-label {
+    padding-left: 0 !important;
+}

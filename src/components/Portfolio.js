@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import HoldingsTable from '../blocks/HoldingsTable';
+
 class Portfolio extends Component {
     componentDidMount = () => {
         console.dir(this.props.holdings)
@@ -19,6 +21,11 @@ class Portfolio extends Component {
                     <div className="row">
                         <input className="btn btn-warning btn-sm" type="button" value="Add New Holding" onClick={this.newHoldingBtnOnClick}/>
                     </div>
+                  </div>
+                  <div className="holdings-table">
+                      <div className="row">
+                          <HoldingsTable />
+                      </div>
                   </div>
               </div>
           </div>

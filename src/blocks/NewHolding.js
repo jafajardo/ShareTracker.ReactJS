@@ -10,7 +10,8 @@ class NewHolding extends Component {
             holdingCode: '',
             quantity: 0,
             sharePrice: 0.00,
-            brokerageFee: 0.00
+            brokerageFee: 0.00,
+            tradeDate: ''
         }
     }
     onHoldingCodeChange = (e) => {
@@ -31,6 +32,11 @@ class NewHolding extends Component {
     onBrokerageFeeChange = (e) => {
         this.setState({
             brokerageFee: e.target.value
+        });
+    }
+    onTradeDateChange = (e) => {
+        this.setState({
+            tradeDate: e.target.value
         });
     }
     saveHoldingBtnOnClick = () => {
@@ -63,7 +69,7 @@ class NewHolding extends Component {
                 </div>
                 <div className="form-group">
                     <label className="col-sm-3 form-label">Traded on:</label>
-                    <input type="text" className="form-control" placeholder="Date"></input>
+                    <input type="date" className="form-control" placeholder="Date" onChange={this.onTradeDateChange}></input>
                 </div>
                 <div className="form-group row">
                     <div className="col-sm-3">

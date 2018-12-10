@@ -7,12 +7,13 @@ class HoldingsTable extends Component {
             <tbody>
                 {
                     this.props.holdings.map((holding, index) => {
+                        let holdingTotalPrice = (parseInt(holding.quantity) * parseFloat(holding.sharePrice)).toFixed(2);
                         return (
                         <tr key={index}>
                             <th scope="row">{holding.holdingCode}</th>
                             <td>{holding.sharePrice}</td>
                             <td>{holding.quantity}</td>
-                            <td>{holding.amount}</td>
+                            <td>{holdingTotalPrice}</td>
                         </tr>);
                     })
                 }

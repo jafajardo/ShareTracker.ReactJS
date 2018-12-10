@@ -5,9 +5,6 @@ import { withRouter } from 'react-router-dom';
 import HoldingsTable from '../blocks/HoldingsTable';
 
 class Portfolio extends Component {
-    componentDidMount = () => {
-        console.dir(this.props.holdings)
-    }
     newHoldingBtnOnClick = () => {
         this.props.history.push('/Holdings');
     }

@@ -8,7 +8,6 @@ class NewHolding extends Component {
         super(props);
         this.state = {
             holdingCode: '',
-            totalHoldingAmount: 0.00,
             quantity: 0,
             sharePrice: 0.00,
             brokerageFee: 0.00
@@ -22,25 +21,17 @@ class NewHolding extends Component {
     onQuantityChange = (e) => {
         this.setState({
             quantity: e.target.value
-        }, this.calculateTotalHoldingAmount());
+        });
     }
     onSharePriceChange = (e) => {
         this.setState({
             sharePrice: e.target.value
-        }, this.calculateTotalHoldingAmount());
+        });
     }
     onBrokerageFeeChange = (e) => {
         this.setState({
             brokerageFee: e.target.value
-        }, this.calculateTotalHoldingAmount());
-    }
-    calculateTotalHoldingAmount = () => {
-        const {quantity, sharePrice, brokerageFee} = this.state;
-        if (quantity > 0 && sharePrice > 0.00) {
-            this.setState({
-                totalHoldingAmount: (parseInt(quantity) * parseFloat(sharePrice)) + parseFloat(brokerageFee)
-            });
-        }
+        });
     }
     saveHoldingBtnOnClick = () => {
         if (this.state.quantity > 0 && this.state.sharePrice > 0.00) {
@@ -48,14 +39,21 @@ class NewHolding extends Component {
                 holdingCode: this.state.holdingCode,
                 quantity: this.state.quantity,
                 sharePrice: this.state.sharePrice,
-                brokerageFee: this.state.brokerageFee,
-                amount: this.state.totalHoldingAmount
+                brokerageFee: this.state.brokerageFee
             });
 
         this.props.history.push('/Portfolio');
         }
     }
     render() {
+        let totalPrice = 0.00;
+        if (parseInt(this.state.quantity) > 0 && parseFloat(this.state.sharePrice) > 0.00) {
+            totalPrice = parseFloat((parseInt(this.state.quantity) * parseFloat(this.state.sharePrice)).toFixed(2));
+            if (parseFloat(this.state.brokerageFee) > 0.00) {
+                totalPrice += parseFloat(this.state.brokerageFee);
+                totalPrice = parseFloat(totalPrice).toFixed(2);
+            }
+        }
         return (
             <div className="newHolding">
             <form className="newHoldingForm">
@@ -82,7 +80,7 @@ class NewHolding extends Component {
                     </div>
                     <div className="col-sm-3">
                         <label>Total</label>
-                        <input type="text" className="form-control" placeholder="0.00" value={this.state.totalHoldingAmount} disabled></input>
+                        <input type="text" className="form-control" placeholder="0.00" value={totalPrice} disabled></input>
                     </div>
                 </div>
                 <div className="form-group">

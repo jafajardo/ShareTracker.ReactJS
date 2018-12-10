@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import NewHolding from '../blocks/NewHolding';
 
@@ -9,7 +10,7 @@ class Holdings extends React.Component {
               <div className="header-area"></div>
               <div className="content-header-area h3">Add Holdings</div>
               <div className="content-area">
-                  <NewHolding />
+                  <NewHolding history={this.props.history} />
               </div>
           </div>
         );

@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 class Portfolio extends Component {
+    componentDidMount = () => {
+        console.dir(this.props.holdings)
+    }
     newHoldingBtnOnClick = () => {
         this.props.history.push('/Holdings');
     }
-
     render() {
         return (
           <div className="page">
@@ -23,4 +26,9 @@ class Portfolio extends Component {
     }
 }
 
-export default Portfolio;
+const mapStateToProps = (state) => {
+    return {
+        holdings: state.holdings.holdings
+    }
+}
+export default connect(mapStateToProps, null)(Portfolio);
